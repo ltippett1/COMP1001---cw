@@ -1,0 +1,32 @@
+; A simple example adding two numbers.
+.386  ; Specify instruction set
+.model flat, stdcall  ; Flat memory model, std. calling convention
+.stack 4096 ; Reserve stack space
+ExitProcess PROTO, dwExitCode: DWORD  ; Exit process prototype
+
+
+
+.data ; data segment
+
+; define your variables here
+
+    array DWORD 10, 20, 30, 40 ; this will initise the array with the values 10, 20, 30, 40
+
+.code ; code segment
+
+
+main PROC ; main procedure
+
+; write your assembly code here
+
+    mov eax, [array + TYPE array * 3] ; this will load the last element of the array
+    mov ebx, 3 ; this will store the multiplier of 3 into ebx
+    mul ebx ; this will multiple the last element in eax by the multipler in ebx
+    mov ecx, 6 ; this will store the divider of 6 into ecx
+    div ecx ; this will divide eax by 6 after it has been multiplied 
+    mov [array + TYPE array * 3], eax ; this will load the new value back into the last value of the array
+
+    INVOKE ExitProcess, 0 ; call exit function
+
+main ENDP ; exit main procedure
+END main  ; stop assembling 
