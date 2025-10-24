@@ -4,7 +4,8 @@
 .stack 4096 ; Reserve stack space
 ExitProcess PROTO, dwExitCode: DWORD  ; Exit process prototype
 
-
+ ; add multipler to variables to remove edx
+    ; make into 1 loop from adding everything before inc from other loops into first loop
 
 .data ; data segment
 
